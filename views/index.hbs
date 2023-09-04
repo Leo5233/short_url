@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+ <div class="center-box">
+    <h1>URL Shortener</h1>
+    <img id='cover-img'
+      src="https://assets-lighthouse.alphacamp.co/uploads/image/file/16716/ExportedContentImage_00.png"
+      alt="link image"><br>
+    <div class="renew-part">
+      {{#if shortUrl}}
+      {{else}}
+      <form method="POST" action="/">
+        <input class="url-input" type="text" name="full_url" placeholder="Input URL here..." aria-label="Search"><br>
+        <button id='shorten' type="submit">Shorten</button>
+      </form>
+      {{/if}}
+      {{#if shortUrl}}
+      <div class="success-msg" >
+        <h3>Success! Please use this link:<br></h3>
+        <input type="text" value="{{shortUrl}}" id="short-url" readonly="true"><br>
+        <button id='copy-btn'>Copy url</button>
+      </div>
+      
+      <button id='shorten' type="submit" style="visibility:hidden">Shorten</button>
+      {{else}}
+            <button id='copy-btn' style="visibility:hidden">Copy url</button>
+      {{/if}}
+    </div>
+  </div>
