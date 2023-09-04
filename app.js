@@ -26,7 +26,7 @@ app.post('/', async (req, res) => {
   try {
     const fullUrl = req.body['full_url'];
     const db = new sqlite3.Database(DB_PATH)
-    //先找資料庫有無舊短址，沒有就產生新的
+    //先找資料庫有無舊短址，有的話就回傳一樣的，沒有就產生新的
     db.get(`SELECT short_url, full_url FROM short_urls WHERE full_url = "${fullUrl}";`, (err, row) => {
       if (err) { throw err }
       if (row) {
